@@ -1,6 +1,10 @@
 #include <stdio.h>
+//#include <Python.h>
 main(int av, char* args[])
 {
-	printf("Hello World");
-	getchar();
+	FILE* file;
+	Py_Initialize();
+	file = fopen("camera.py", "r");
+	PyRun_SimpleFile(file, "camera.py");
+	Py_Finalize();
 }
