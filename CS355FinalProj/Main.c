@@ -1,5 +1,7 @@
 #include <stdio.h>
-//#include <Python.h>
+//#include <Python.h
+
+//gcc  $(python - config --includes --libs) main.c
 main(int av, char* args[])
 {
 	FILE* file;
@@ -9,8 +11,8 @@ main(int av, char* args[])
 	{
 		//Take Picture
 		Py_Initialize();
-		file = fopen("camera.py", "r");
-		PyRun_SimpleFile(file, "camera.py");
+		file = fopen("Sensorss.py", "r");
+		PyRun_SimpleFile(file, "Sensorss.py");
 		Py_Finalize();
 
 		//Prompt for Continue
