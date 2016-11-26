@@ -1,0 +1,51 @@
+1. Update Everything
+
+sudo apt-get update
+
+2. Install Apache Server
+
+sudo apt-get install apache2 apache2-utils -y
+
+IMPORTANT: To confirm this is working, on your pi, open up the browser and navigate to 'http://localhost/'
+you should see a Debian page titled 'Apache2 Debian Default Page'
+
+3. Install PHP
+
+sudo apt-get install php5 libapache2-mod-php5 -y
+
+4. Install MySQL
+
+sudo apt-get install mysql-server mysql-client libmysqlclient-dev 
+sudo apt-get install php5-mysql -y
+
+username: root password: pass
+
+5. Setup MySQL tables:
+
+mysql -u root -p
+
+this should bring up a prompt for a password, use pass or whatever you put in.
+this should bring you to a mysql> prompt
+For each line put a semi colon and hit enter
+
+CREATE DATABASE imagedb;
+
+USE imagedb;
+
+CREATE TABLE images (id INTEGER AUTO_INCREMENT, img BLOB, info VARCHAR(20), PRIMARY KEY(id));
+
+quit
+
+6. Move pic.html and pic.php to the server hosted folder
+
+Download pic.html and pic.php from this folder to your raspberry pi somewhere.
+Navigate on the command line to wherever pic.html and pic.php and run these commands
+
+sudo cp pic.html /var/www/html
+sudo cp pic.php /var/www/html
+
+Now on your browser you should be able to navigate to 
+'http://localhost/' -> 'http://localhost/pic.html'
+
+You should see the pic.html with an empty pic. Now whenever we add an image to the DB it should show up as the latest image inserted on that page.
+
