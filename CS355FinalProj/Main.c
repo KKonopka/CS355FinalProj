@@ -1,15 +1,16 @@
-#include <stdio.h>
-#include <Python.h>
+
 #include <my_global.h>
 #include <mysql.h>
+#include <Python.h>
+#include <stdio.h>
 
 //gcc  $(python - config --includes --libs) main.c
-main(int av, char* args[])
+int main(int av, char* args[])
 {
 	FILE* file;
 	
 	int Done = 0;
-	while (Done)
+	while (!Done)
 	{
 		//Take Picture
 		Py_Initialize();
@@ -121,5 +122,5 @@ main(int av, char* args[])
 		putchar(iTest);
 		printf("\n");
 	}
-	
+	return 0;
 }
