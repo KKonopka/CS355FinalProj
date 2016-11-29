@@ -19,7 +19,7 @@ main(int av, char* args[])
 
 
 		//Process Picture
-		FILE *fp = fopen("[fileLocation]", "rb");
+		FILE *fp = fopen("image.jpg", "rb");
 		if (fp == NULL)
 		{
 			fprintf(stderr, "cannot open image file\n");
@@ -93,7 +93,7 @@ main(int av, char* args[])
 		char chunk[(2 * size) + 1];
 		mysql_real_escape_string(con, chunk, data, size);
 
-		char *st = "INSERT INTO Images(Data) VALUES('%s')";
+		char *st = "INSERT INTO images(img) VALUES('%s')";
 		size_t st_len = strlen(st);
 
 		char query[st_len + 2 * size + 1];
