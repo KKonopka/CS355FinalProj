@@ -14,12 +14,12 @@ camera = PiCamera()
 flag = 0
 while flag == 0:
 	try:
-		if grovepi.digitalRead(pir_sensor):
+		if (grovepi.digitalRead(pir_sensor)==1):
 			camera.start_preview()
 			time.sleep(2)
 			camera.capture('image.jpg')
 			camera.stop_preview()
-		flag = sys.stdin.read()
+			flag=1
 		time.sleep(2)
 	except IOError:
 		print "Error"
